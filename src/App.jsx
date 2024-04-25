@@ -1,5 +1,11 @@
+import HeaderContainer from "./components/Header/HeaderContainer";
+
 function App() {
-  return <div>Hello</div>;
+  return (
+    <div>
+      <HeaderContainer />
+    </div>
+  );
 }
 
 export default App;
