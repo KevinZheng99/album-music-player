@@ -3,7 +3,7 @@ import HeaderContainer from "./components/Header/HeaderContainer";
 function App() {
   return (
     <>
-      <div className="absolute h-screen w-screen bg-no-repeat bg-cover bg-center bg-album-cover blur-sm -z-10" />
+      <div className="fixed h-[102%] w-[102%] bg-center bg-cover bg-album-cover blur-[5px] brightness-[38%] -top-[1%] -left-[1%]" />
       <HeaderContainer />
     </>
   );
