@@ -4,12 +4,12 @@ import Share from "../Icons/Share";
 
 function HeroContainer() {
   const buttonStyles =
-    "flex items-center gap-2 text-slate-200 px-6 py-4 text-xl font-medium";
+    "flex items-center gap-2 text-slate-200 px-6 py-4 text-xl font-medium border-2";
   const buttonHoverStyles =
-    "hover:bg-slate-200 hover:border-slate-200 hover:text-black";
+    "hover:bg-slate-200 hover:border-slate-200 hover:text-black transition-all";
 
   return (
-    <div className="flex items-center mb-32">
+    <div className="flex items-center mb-32 -translate-x-36">
       <AlbumContainer />
       <div>
         <p className=" mb-4 text-slate-200 text-7xl font-bold">MBDTF</p>
@@ -18,7 +18,7 @@ function HeroContainer() {
           <button
             className={
               buttonStyles +
-              " bg-red-500 border-red-500 border-2 mr-4 transition-all " +
+              " bg-red-500 border-red-500 mr-4 " +
               buttonHoverStyles
             }
           >
@@ -26,11 +26,7 @@ function HeroContainer() {
             LISTEN NOW
           </button>
           <button
-            className={
-              buttonStyles +
-              " border-slate-200 border-2 transition-all " +
-              buttonHoverStyles
-            }
+            className={buttonStyles + " border-slate-200 " + buttonHoverStyles}
           >
             <Share />
             SHARE
