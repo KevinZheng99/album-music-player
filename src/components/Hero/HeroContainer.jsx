@@ -12,7 +12,7 @@ function HeroContainer() {
     <div className="flex items-center mb-32 -translate-x-36">
       <AlbumContainer />
       <div>
-        <p className=" mb-4 text-slate-200 text-7xl font-bold">MBDTF</p>
+        <p className=" mb-4 text-slate-200 text-7xl font-bold">M.B.D.T.F.</p>
         <p className=" mb-16 text-slate-200 text-5xl font-bold">Kanye West</p>
         <div className="flex">
           <button
