@@ -1,3 +1,4 @@
+import MusicVideo from "./Sections/MusicVideo";
 import Streams from "./Sections/Streams";
 import TrackList from "./Sections/TrackList";
 
@@ -6,6 +7,7 @@ function MainContent() {
     <div>
       <Streams />
       <TrackList />
+      <MusicVideo />
     </div>
   );
 }
