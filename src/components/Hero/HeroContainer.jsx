@@ -9,11 +9,15 @@ function HeroContainer() {
     "hover:bg-slate-200 hover:border-slate-200 hover:text-black transition-all";
 
   return (
-    <div className="flex items-center mb-32 -translate-x-36">
+    <div className="flex items-center mb-32 gap-20 mt-20">
       <AlbumContainer />
-      <div>
-        <p className=" mb-4 text-slate-200 text-7xl font-bold">M.B.D.T.F.</p>
-        <p className=" mb-16 text-slate-200 text-5xl font-bold">Kanye West</p>
+      <div className="w-full">
+        <p className=" mb-4 text-slate-200 text-6xl 2xl:text-7xl font-bold">
+          M.B.D.T.F.
+        </p>
+        <p className=" mb-16 text-slate-200 text-4xl 2xl:text-5xl font-bold">
+          Kanye West
+        </p>
         <div className="flex">
           <button
             className={
