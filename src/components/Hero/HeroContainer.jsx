@@ -9,7 +9,7 @@ function HeroContainer() {
     "hover:bg-slate-200 hover:border-slate-200 hover:text-black transition-all";
 
   return (
-    <div className="flex items-center mb-32 gap-20 mt-20">
+    <div className="mb-20 xl:flex xl:items-center xl:mb-32 xl:gap-20 xl:mt-20">
       <AlbumContainer />
       <div className="w-full">
         <p className=" mb-4 text-slate-200 text-6xl 2xl:text-7xl font-bold">

@@ -8,7 +8,7 @@ function Socials() {
   const svgClasses = "text-slate-200";
 
   return (
-    <div className="absolute flex flex-col items-center justify-center gap-6 top-24 right-16">
+    <div className="xl:absolute flex xl:flex-col items-center justify-center gap-6 xl:top-24 xl:right-16">
       <a href="https://www.instagram.com/ye" target="_blank" rel="noreferrer">
         <Instagram styles={svgClasses} />
       </a>
