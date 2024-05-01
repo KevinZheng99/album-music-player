@@ -5,7 +5,7 @@ import { calculateTime } from "../../utils/calculateTime";
 
 function AudioPlayer() {
   const audioPlayerPos =
-    "flex items-center fixed w-1/2 top-full left-1/2 -translate-x-1/2 rounded-full -translate-y-32 font-medium";
+    "flex items-center gap-2 fixed w-1/2 top-full left-1/2 -translate-x-1/2 rounded-full -translate-y-32 font-medium";
   const audioRef = useRef();
   const [songDuration, setSongDuration] = useState(0);
 
@@ -36,6 +36,13 @@ function AudioPlayer() {
         <a className="cursor-pointer" onClick={handlePlayButton}>
           <PlayFilled />
         </a>
+        <span>0:00</span>
+        <input
+          className="w-full bg-black accent-[#D8943F] rounded-full appearance-none"
+          type="range"
+          id="seek-slider"
+          max="100"
+        ></input>
         <span>{songDuration}</span>
       </div>
     </>
