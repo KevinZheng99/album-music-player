@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 
 import PlayFilled from "../Icons/PlayFilled";
 import { calculateTime } from "../../utils/calculateTime";
+import Volume from "../Icons/Volume";
 
 function AudioPlayer() {
   const audioPlayerPos =
@@ -15,7 +16,11 @@ function AudioPlayer() {
   };
 
   const handlePlayButton = () => {
-    audioRef.current.play();
+    if (audioRef.current.paused) {
+      audioRef.current.play();
+    } else {
+      audioRef.current.pause();
+    }
   };
 
   return (
@@ -44,6 +49,9 @@ function AudioPlayer() {
           max="100"
         ></input>
         <span>{songDuration}</span>
+        <a className="cursor-pointer">
+          <Volume />
+        </a>
       </div>
     </>
   );
