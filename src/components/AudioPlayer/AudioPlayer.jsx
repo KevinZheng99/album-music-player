@@ -3,12 +3,14 @@ import { useRef, useState } from "react";
 import PlayFilled from "../Icons/PlayFilled";
 import { calculateTime } from "../../utils/calculateTime";
 import Volume from "../Icons/Volume";
+import Pause from "../Icons/Pause";
 
 function AudioPlayer() {
   const audioPlayerPos =
     "flex items-center gap-2 fixed w-1/2 top-full left-1/2 -translate-x-1/2 rounded-full -translate-y-32 font-medium";
   const audioRef = useRef();
   const [songDuration, setSongDuration] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   const onLoadedMetadata = () => {
     const seconds = Math.floor(audioRef.current.duration);
@@ -18,8 +20,10 @@ function AudioPlayer() {
   const handlePlayButton = () => {
     if (audioRef.current.paused) {
       audioRef.current.play();
+      setIsPlaying(!isPlaying);
     } else {
       audioRef.current.pause();
+      setIsPlaying(!isPlaying);
     }
   };
 
@@ -39,7 +43,7 @@ function AudioPlayer() {
         }
       >
         <a className="cursor-pointer" onClick={handlePlayButton}>
-          <PlayFilled />
+          {isPlaying ? <Pause /> : <PlayFilled />}
         </a>
         <span>0:00</span>
         <input
