@@ -47,15 +47,21 @@ function AudioPlayer() {
         </a>
         <span>0:00</span>
         <input
-          className="w-full bg-black accent-[#D8943F] rounded-full appearance-none"
+          className="w-full accent-[#D8943F]"
           type="range"
           id="seek-slider"
           max="100"
         ></input>
         <span>{songDuration}</span>
-        <a className="cursor-pointer">
-          <Volume />
-        </a>
+        <div className="flex items-center group w-1/4">
+          <input
+            className="w-full accent-[#D8943F]"
+            type="range"
+            id="seek-slider"
+            max="100"
+          ></input>
+        </div>
+        <Volume />
       </div>
     </>
   );
