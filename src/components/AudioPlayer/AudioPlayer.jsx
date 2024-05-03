@@ -4,6 +4,7 @@ import PlayFilled from "../Icons/PlayFilled";
 import { calculateTime } from "../../utils/calculateTime";
 import Volume from "../Icons/Volume";
 import Pause from "../Icons/Pause";
+import VolumeMuted from "../Icons/VolumeMuted";
 
 function AudioPlayer() {
   const audioPlayerPos =
@@ -11,6 +12,7 @@ function AudioPlayer() {
   const audioRef = useRef();
   const [songDuration, setSongDuration] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isMuted, setIsMuted] = useState(false);
 
   const onLoadedMetadata = () => {
     const seconds = Math.floor(audioRef.current.duration);
@@ -25,6 +27,10 @@ function AudioPlayer() {
       audioRef.current.pause();
       setIsPlaying(!isPlaying);
     }
+  };
+
+  const handleVolumeButton = () => {
+    setIsMuted(!isMuted);
   };
 
   return (
@@ -42,9 +48,9 @@ function AudioPlayer() {
           audioPlayerPos + " bg-[#F22546] p-4 border-4 border-[#D8943F]"
         }
       >
-        <a className="cursor-pointer" onClick={handlePlayButton}>
+        <span className="cursor-pointer" onClick={handlePlayButton}>
           {isPlaying ? <Pause /> : <PlayFilled />}
-        </a>
+        </span>
         <span>0:00</span>
         <input
           className="w-full accent-[#D8943F]"
@@ -61,7 +67,9 @@ function AudioPlayer() {
             max="100"
           ></input>
         </div>
-        <Volume />
+        <span className="cursor-pointer" onClick={handleVolumeButton}>
+          {isMuted ? <VolumeMuted /> : <Volume />}
+        </span>
       </div>
     </>
   );
