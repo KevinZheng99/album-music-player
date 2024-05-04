@@ -41,6 +41,11 @@ function AudioPlayer() {
     setCurrTime(currentTimeRef.current.value);
   };
 
+  const handleTimeUpdate = () => {
+    setCurrTime(audioRef.current.currentTime);
+    currentTimeRef.current.value = Math.floor(audioRef.current.currentTime);
+  };
+
   return (
     <>
       <audio
@@ -48,6 +53,7 @@ function AudioPlayer() {
         preload="metadata"
         onLoadedMetadata={onLoadedMetadata}
         controls
+        onTimeUpdate={handleTimeUpdate}
         ref={audioRef}
         src="src/assets/audio/POWER.mp3"
       />
@@ -59,7 +65,9 @@ function AudioPlayer() {
         <span className="cursor-pointer" onClick={handlePlayButton}>
           {isPlaying ? <Pause /> : <PlayFilled />}
         </span>
-        <span>{currTime ? calculateTime(currTime) : "0:00"}</span>
+        <span className="text-center w-14">
+          {currTime ? calculateTime(currTime) : "0:00"}
+        </span>
         <input
           className="w-full accent-[#D8943F]"
           type="range"
@@ -67,7 +75,7 @@ function AudioPlayer() {
           onChange={handleChangeSlider}
           ref={currentTimeRef}
         ></input>
-        <span>{songDuration}</span>
+        <span className="text-center w-14">{songDuration}</span>
         <div className="flex items-center group w-1/4">
           <input
             className="w-full accent-[#D8943F]"
