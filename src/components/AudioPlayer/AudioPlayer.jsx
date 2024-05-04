@@ -39,6 +39,7 @@ function AudioPlayer() {
 
   const handleChangeSlider = () => {
     setCurrTime(currentTimeRef.current.value);
+    audioRef.current.currentTime = currentTimeRef.current.value;
   };
 
   const handleTimeUpdate = () => {
