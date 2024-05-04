@@ -10,12 +10,16 @@ function AudioPlayer() {
   const audioPlayerPos =
     "flex items-center gap-2 fixed w-1/2 top-full left-1/2 -translate-x-1/2 rounded-full -translate-y-32 font-medium";
   const audioRef = useRef();
+  const currentTimeRef = useRef();
   const [songDuration, setSongDuration] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
+  const [currTime, setCurrTime] = useState(0);
 
   const onLoadedMetadata = () => {
     const seconds = Math.floor(audioRef.current.duration);
+    console.log(currentTimeRef.current);
+    currentTimeRef.current.max = seconds;
     setSongDuration(calculateTime(seconds));
   };
 
@@ -31,6 +35,10 @@ function AudioPlayer() {
 
   const handleVolumeButton = () => {
     setIsMuted(!isMuted);
+  };
+
+  const handleChangeSlider = () => {
+    setCurrTime(currentTimeRef.current.value);
   };
 
   return (
@@ -51,19 +59,19 @@ function AudioPlayer() {
         <span className="cursor-pointer" onClick={handlePlayButton}>
           {isPlaying ? <Pause /> : <PlayFilled />}
         </span>
-        <span>0:00</span>
+        <span>{currTime ? calculateTime(currTime) : "0:00"}</span>
         <input
           className="w-full accent-[#D8943F]"
           type="range"
-          id="seek-slider"
-          max="100"
+          value={currTime}
+          onChange={handleChangeSlider}
+          ref={currentTimeRef}
         ></input>
         <span>{songDuration}</span>
         <div className="flex items-center group w-1/4">
           <input
             className="w-full accent-[#D8943F]"
             type="range"
-            id="seek-slider"
             max="100"
           ></input>
         </div>
