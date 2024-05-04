@@ -34,7 +34,18 @@ function AudioPlayer() {
   };
 
   const handleVolumeButton = () => {
-    setIsMuted(!isMuted);
+    if (!isMuted) {
+      audioRef.current.muted = true;
+      setIsMuted(!isMuted);
+    } else {
+      audioRef.current.muted = false;
+      setIsMuted(!isMuted);
+    }
+  };
+
+  const handleVolumeSlider = (e) => {
+    const value = e.target.value;
+    audioRef.current.volume = value / 100;
   };
 
   const handleChangeSlider = () => {
@@ -50,10 +61,8 @@ function AudioPlayer() {
   return (
     <>
       <audio
-        className="fixed w-1/2 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
         preload="metadata"
         onLoadedMetadata={onLoadedMetadata}
-        controls
         onTimeUpdate={handleTimeUpdate}
         ref={audioRef}
         src="src/assets/audio/POWER.mp3"
@@ -82,6 +91,7 @@ function AudioPlayer() {
             className="w-full accent-[#D8943F]"
             type="range"
             max="100"
+            onChange={handleVolumeSlider}
           ></input>
         </div>
         <span className="cursor-pointer" onClick={handleVolumeButton}>
