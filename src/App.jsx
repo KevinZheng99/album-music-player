@@ -1,7 +1,6 @@
 import HeaderContainer from "./components/Header/HeaderContainer";
 import HeroContainer from "./components/Hero/HeroContainer";
 import MainContent from "./components/MainContent";
-import AudioPlayer from "./components/AudioPlayer/AudioPlayer";
 
 function App() {
   return (
@@ -12,7 +11,6 @@ function App() {
         <HeroContainer />
         <MainContent />
       </div>
-      <AudioPlayer />
     </>
   );
 }

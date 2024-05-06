@@ -1,3 +1,4 @@
+import AudioPlayer from "../AudioPlayer/AudioPlayer";
 import TrackSong from "../shared/TrackSong";
 import { mbdtf } from "../../consts";
 
@@ -18,6 +19,7 @@ function TrackList() {
           ))}
         </tbody>
       </table>
+      <AudioPlayer />
     </section>
   );
 }
