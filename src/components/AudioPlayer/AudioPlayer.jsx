@@ -6,7 +6,7 @@ import Volume from "../Icons/Volume";
 import Pause from "../Icons/Pause";
 import VolumeMuted from "../Icons/VolumeMuted";
 
-function AudioPlayer() {
+function AudioPlayer({ trackSrc }) {
   const audioPlayerPos =
     "flex items-center gap-2 fixed w-1/2 top-full left-1/2 -translate-x-1/2 rounded-full -translate-y-32 font-medium z-10";
   const audioRef = useRef();
@@ -65,7 +65,7 @@ function AudioPlayer() {
         onLoadedMetadata={onLoadedMetadata}
         onTimeUpdate={handleTimeUpdate}
         ref={audioRef}
-        src="src/assets/audio/Dark Fantasy.mp3"
+        src={trackSrc}
       />
       <div
         className={
