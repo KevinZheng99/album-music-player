@@ -6,13 +6,13 @@ import Volume from "../Icons/Volume";
 import PauseFilled from "../Icons/PauseFilled";
 import VolumeMuted from "../Icons/VolumeMuted";
 
-function AudioPlayer({ trackSrc }) {
+function AudioPlayer({ trackSrc, setIsPlaying, isPlaying }) {
   const audioPlayerPos =
     "flex items-center gap-2 fixed w-1/2 top-full left-1/2 -translate-x-1/2 rounded-full -translate-y-32 font-medium z-10";
   const audioRef = useRef();
   const currentTimeRef = useRef();
   const [songDuration, setSongDuration] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(false);
+  // const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [currTime, setCurrTime] = useState(0);
 

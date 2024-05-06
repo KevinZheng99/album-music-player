@@ -5,6 +5,7 @@ import TrackSong from "../shared/TrackSong";
 import { mbdtf } from "../../consts";
 
 function TrackList() {
+  const [isPlaying, setIsPlaying] = useState(false);
   const [currSongNum, setCurrSongNum] = useState();
   const [trackPlaying, setTrackPlaying] = useState(
     "src/assets/audio/Dark Fantasy.mp3"
@@ -13,6 +14,12 @@ function TrackList() {
   const handlePlayTrack = (trackNum, songName) => {
     setTrackPlaying(songName);
     setCurrSongNum(trackNum);
+
+    if (trackNum !== currSongNum) {
+      setIsPlaying(isPlaying);
+    } else if (trackNum === currSongNum) {
+      setIsPlaying(!isPlaying);
+    }
   };
 
   return (
@@ -30,11 +37,16 @@ function TrackList() {
               artists={song.artists}
               onPlayTrack={handlePlayTrack}
               currSongNum={currSongNum}
+              isPlaying={isPlaying}
             />
           ))}
         </tbody>
       </table>
-      <AudioPlayer trackSrc={trackPlaying} />
+      <AudioPlayer
+        trackSrc={trackPlaying}
+        setIsPlaying={setIsPlaying}
+        isPlaying={isPlaying}
+      />
     </section>
   );
 }
