@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 import PlayFilled from "../Icons/PlayFilled";
 import { calculateTime } from "../../utils/calculateTime";
 import Volume from "../Icons/Volume";
-import Pause from "../Icons/Pause";
+import PauseFilled from "../Icons/PauseFilled";
 import VolumeMuted from "../Icons/VolumeMuted";
 
 function AudioPlayer({ trackSrc }) {
@@ -18,7 +18,6 @@ function AudioPlayer({ trackSrc }) {
 
   const onLoadedMetadata = () => {
     const seconds = Math.floor(audioRef.current.duration);
-    console.log(currentTimeRef.current);
     currentTimeRef.current.max = seconds;
     setSongDuration(calculateTime(seconds));
   };
@@ -73,7 +72,7 @@ function AudioPlayer({ trackSrc }) {
         }
       >
         <span className="cursor-pointer" onClick={handlePlayButton}>
-          {isPlaying ? <Pause /> : <PlayFilled />}
+          {isPlaying ? <PauseFilled /> : <PlayFilled />}
         </span>
         <span className="text-center w-14">
           {currTime ? calculateTime(currTime) : "0:00"}

@@ -5,12 +5,14 @@ import TrackSong from "../shared/TrackSong";
 import { mbdtf } from "../../consts";
 
 function TrackList() {
+  const [currSongNum, setCurrSongNum] = useState();
   const [trackPlaying, setTrackPlaying] = useState(
     "src/assets/audio/Dark Fantasy.mp3"
   );
 
-  const handlePlayTrack = (songName) => {
+  const handlePlayTrack = (trackNum, songName) => {
     setTrackPlaying(songName);
+    setCurrSongNum(trackNum);
   };
 
   return (
@@ -27,6 +29,7 @@ function TrackList() {
               songLength={song.songLength}
               artists={song.artists}
               onPlayTrack={handlePlayTrack}
+              currSongNum={currSongNum}
             />
           ))}
         </tbody>

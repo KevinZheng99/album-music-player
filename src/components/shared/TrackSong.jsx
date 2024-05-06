@@ -1,3 +1,4 @@
+import Pause from "../Icons/Pause";
 import Play from "../Icons/Play";
 import Share from "../Icons/Share";
 
@@ -8,13 +9,14 @@ function TrackSong({
   songLength,
   artists,
   onPlayTrack,
+  currSongNum,
 }) {
   return (
     <tr className="flex items-center text-slate-200">
       <td className="p-4 w-12 text-xl font-medium">{trackNum}</td>
       <td className="p-4">
-        <span onClick={() => onPlayTrack(songSrc)}>
-          <Play />
+        <span onClick={() => onPlayTrack(trackNum, songSrc)}>
+          {currSongNum === trackNum ? <Pause /> : <Play />}
         </span>
       </td>
       <td className="p-4 flex flex-col w-full">
