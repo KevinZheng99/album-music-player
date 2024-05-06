@@ -15,8 +15,8 @@ function TrackList() {
     setTrackPlaying(songName);
     setCurrSongNum(trackNum);
 
-    if (trackNum !== currSongNum) {
-      setIsPlaying(isPlaying);
+    if (trackNum !== currSongNum && !isPlaying) {
+      setIsPlaying(!isPlaying);
     } else if (trackNum === currSongNum) {
       setIsPlaying(!isPlaying);
     }
