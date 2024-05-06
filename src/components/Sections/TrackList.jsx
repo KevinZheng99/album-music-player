@@ -6,7 +6,7 @@ import { mbdtf } from "../../consts";
 
 function TrackList() {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [currSongNum, setCurrSongNum] = useState();
+  const [currSongNum, setCurrSongNum] = useState(0);
   const [trackPlaying, setTrackPlaying] = useState(
     "src/assets/audio/Dark Fantasy.mp3"
   );

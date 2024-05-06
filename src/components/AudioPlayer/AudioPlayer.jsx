@@ -12,7 +12,6 @@ function AudioPlayer({ trackSrc, setIsPlaying, isPlaying }) {
   const audioRef = useRef();
   const currentTimeRef = useRef();
   const [songDuration, setSongDuration] = useState(0);
-  // const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [currTime, setCurrTime] = useState(0);
 
@@ -56,6 +55,12 @@ function AudioPlayer({ trackSrc, setIsPlaying, isPlaying }) {
     setCurrTime(audioRef.current.currentTime);
     currentTimeRef.current.value = Math.floor(audioRef.current.currentTime);
   };
+
+  if (isPlaying) {
+    audioRef.current?.play();
+  } else if (!isPlaying) {
+    audioRef.current?.pause();
+  }
 
   return (
     <>
