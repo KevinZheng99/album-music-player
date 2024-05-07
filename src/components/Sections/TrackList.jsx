@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 
 import AudioPlayer from "../AudioPlayer/AudioPlayer";
 import TrackSong from "../shared/TrackSong";
 import { mbdtf } from "../../consts";
 
+import { AudioContext } from "../../store/play-audio-context";
+
 function TrackList() {
-  const [isPlaying, setIsPlaying] = useState(false);
+  const { isPlaying, playButton } = useContext(AudioContext);
   const [currSongNum, setCurrSongNum] = useState(0);
   const [trackPlaying, setTrackPlaying] = useState(
     "src/assets/audio/Dark Fantasy.mp3"
@@ -16,9 +18,9 @@ function TrackList() {
     setCurrSongNum(trackNum);
 
     if (trackNum !== currSongNum && !isPlaying) {
-      setIsPlaying(!isPlaying);
+      playButton();
     } else if (trackNum === currSongNum) {
-      setIsPlaying(!isPlaying);
+      playButton();
     }
   };
 
@@ -37,16 +39,11 @@ function TrackList() {
               artists={song.artists}
               onPlayTrack={handlePlayTrack}
               currSongNum={currSongNum}
-              isPlaying={isPlaying}
             />
           ))}
         </tbody>
       </table>
-      <AudioPlayer
-        trackSrc={trackPlaying}
-        setIsPlaying={setIsPlaying}
-        isPlaying={isPlaying}
-      />
+      <AudioPlayer trackSrc={trackPlaying} />
     </section>
   );
 }

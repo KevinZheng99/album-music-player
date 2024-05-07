@@ -1,6 +1,10 @@
+import { useContext } from "react";
+
 import Pause from "../Icons/Pause";
 import Play from "../Icons/Play";
 import Share from "../Icons/Share";
+
+import { AudioContext } from "../../store/play-audio-context";
 
 function TrackSong({
   trackNum,
@@ -10,13 +14,17 @@ function TrackSong({
   artists,
   onPlayTrack,
   currSongNum,
-  isPlaying,
 }) {
+  const { isPlaying } = useContext(AudioContext);
+
   return (
     <tr className="flex items-center text-slate-200">
       <td className="p-4 w-12 text-xl font-medium">{trackNum}</td>
       <td className="p-4">
-        <span onClick={() => onPlayTrack(trackNum, songSrc)}>
+        <span
+          className="cursor-pointer"
+          onClick={() => onPlayTrack(trackNum, songSrc)}
+        >
           {currSongNum === trackNum && isPlaying ? <Pause /> : <Play />}
         </span>
       </td>

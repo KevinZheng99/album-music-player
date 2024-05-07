@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useContext } from "react";
 
 import PlayFilled from "../Icons/PlayFilled";
 import { calculateTime } from "../../utils/calculateTime";
@@ -6,7 +6,11 @@ import Volume from "../Icons/Volume";
 import PauseFilled from "../Icons/PauseFilled";
 import VolumeMuted from "../Icons/VolumeMuted";
 
-function AudioPlayer({ trackSrc, setIsPlaying, isPlaying }) {
+import { AudioContext } from "../../store/play-audio-context";
+
+function AudioPlayer({ trackSrc }) {
+  const { isPlaying, playButton } = useContext(AudioContext);
+
   const audioPlayerPos =
     "flex items-center gap-2 fixed w-1/2 top-full left-1/2 -translate-x-1/2 rounded-full -translate-y-32 font-medium z-10";
   const audioRef = useRef();
@@ -19,16 +23,6 @@ function AudioPlayer({ trackSrc, setIsPlaying, isPlaying }) {
     const seconds = Math.floor(audioRef.current.duration);
     currentTimeRef.current.max = seconds;
     setSongDuration(calculateTime(seconds));
-  };
-
-  const handlePlayButton = () => {
-    if (audioRef.current.paused) {
-      audioRef.current.play();
-      setIsPlaying(!isPlaying);
-    } else {
-      audioRef.current.pause();
-      setIsPlaying(!isPlaying);
-    }
   };
 
   const handleVolumeButton = () => {
@@ -76,7 +70,7 @@ function AudioPlayer({ trackSrc, setIsPlaying, isPlaying }) {
           audioPlayerPos + " bg-[#F22546] p-4 border-4 border-[#D8943F]"
         }
       >
-        <span className="cursor-pointer" onClick={handlePlayButton}>
+        <span className="cursor-pointer" onClick={playButton}>
           {isPlaying ? <PauseFilled /> : <PlayFilled />}
         </span>
         <span className="text-center w-14">
