@@ -2,11 +2,13 @@ import { useContext } from "react";
 import AlbumContainer from "./AlbumContainer";
 import Play from "../Icons/Play";
 import Share from "../Icons/Share";
-import { AudioContext } from "../../store/play-audio-context";
 import Pause from "../Icons/Pause";
+import { AudioContext } from "../../store/play-audio-context";
+import { ShareModalContext } from "../../store/share-modal";
 
 function HeroContainer() {
   const { isPlaying, playButton } = useContext(AudioContext);
+  const { shareButton } = useContext(ShareModalContext);
 
   const buttonStyles =
     "flex items-center gap-2 text-slate-200 px-6 py-4 text-xl font-medium border-2";
@@ -37,6 +39,7 @@ function HeroContainer() {
           </button>
           <button
             className={buttonStyles + " border-slate-200 " + buttonHoverStyles}
+            onClick={shareButton}
           >
             <Share />
             SHARE
