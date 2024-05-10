@@ -1,4 +1,4 @@
-import { useContext, useRef } from "react";
+import { useContext, useState, useRef } from "react";
 import Close from "../Icons/Close";
 import FacebookColored from "../Icons/FacebookColored";
 import TwitterColored from "../Icons/TwitterColored";
@@ -9,13 +9,18 @@ import Link from "../Icons/Link";
 import { ShareModalContext } from "../../store/share-modal";
 
 function ShareModal() {
+  const [isCopied, setIsCopied] = useState(false);
   const copyLinkRef = useRef();
   const socialLinkStyles =
     "rounded-full p-2 border-2  cursor-pointer hover:bg-neutral-300 transition-all";
   const { isShowing, shareButton } = useContext(ShareModalContext);
 
   const copyLink = () => {
+    copyLinkRef.current.select();
+    copyLinkRef.current.setSelectionRange(0, 99999);
+
     navigator.clipboard.writeText(copyLinkRef.current.value);
+    setIsCopied(true);
   };
 
   return (
@@ -58,7 +63,11 @@ function ShareModal() {
           </li>
         </ul>
         <div className="mt-6 text-lg">Or copy link</div>
-        <div className="flex items-center gap-4 mt-6 w-full border rounded px-4 py-2 border-neutral-400">
+        <div
+          className={`flex items-center gap-4 mt-6 w-full border rounded px-4 py-2 border-neutral-400 transition-all ${
+            isCopied && "border-neutral-900"
+          }`}
+        >
           <Link />
           <input
             ref={copyLinkRef}
@@ -70,7 +79,7 @@ function ShareModal() {
             className="bg-black text-slate-200 px-6 py-2 rounded-lg"
             onClick={copyLink}
           >
-            Copy
+            {isCopied ? "Copied" : "Copy"}
           </button>
         </div>
       </div>
