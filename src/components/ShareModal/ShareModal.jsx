@@ -1,5 +1,10 @@
 import { useContext } from "react";
 import Close from "../Icons/Close";
+import FacebookColored from "../Icons/FacebookColored";
+import TwitterColored from "../Icons/TwitterColored";
+import InstagramColored from "../Icons/InstagramColored";
+import WhatsAppColored from "../Icons/WhatsAppColored";
+import TelegramColored from "../Icons/TelegramColored";
 import { ShareModalContext } from "../../store/share-modal";
 
 function ShareModal() {
@@ -26,6 +31,24 @@ function ShareModal() {
             <Close />
           </span>
         </div>
+        <div className="mt-6 text-lg">Share this link via</div>
+        <ul className="flex mt-6 justify-between items-center">
+          <li className="rounded-full p-2 border-2 border-[#1877f2]">
+            <FacebookColored />
+          </li>
+          <li className="rounded-full p-2 border-2 border-[#1DA1F2]">
+            <TwitterColored />
+          </li>
+          <li className="rounded-full p-2 border-2 border-[#C13584]">
+            <InstagramColored />
+          </li>
+          <li className="rounded-full p-2 border-2 border-[#25d366]">
+            <WhatsAppColored />
+          </li>
+          <li className="rounded-full p-2 border-2 border-[#0088cc]">
+            <TelegramColored />
+          </li>
+        </ul>
       </div>
     </>
   );
