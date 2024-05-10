@@ -32,9 +32,9 @@ function ShareModal() {
         onClick={shareButton}
       />
       <div
-        className={`fixed p-10 rounded-xl w-[512px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-slate-200 z-20 transition-all ${
+        className={`fixed p-10 rounded-xl w-[512px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-slate-200 transition-all ${
           isShowing ? "opacity-100" : "opacity-0"
-        }`}
+        } ${isShowing ? "z-20" : "-z-10"}`}
       >
         <div className="flex items-center justify-between border-b border-neutral-400 pb-6">
           <span className="text-2xl font-medium">Share</span>
