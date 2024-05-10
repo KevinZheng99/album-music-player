@@ -5,6 +5,7 @@ import TwitterColored from "../Icons/TwitterColored";
 import InstagramColored from "../Icons/InstagramColored";
 import WhatsAppColored from "../Icons/WhatsAppColored";
 import TelegramColored from "../Icons/TelegramColored";
+import Link from "../Icons/Link";
 import { ShareModalContext } from "../../store/share-modal";
 
 function ShareModal() {
@@ -20,7 +21,7 @@ function ShareModal() {
         } ${isShowing ? "z-20" : "-z-10"}`}
       />
       <div
-        className={`fixed p-10 rounded-xl w-1/4 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-slate-200 z-20 transition-all ${
+        className={`fixed p-10 rounded-xl w-[512px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-slate-200 z-20 transition-all ${
           isShowing ? "opacity-100" : "opacity-0"
         }`}
       >
@@ -51,6 +52,18 @@ function ShareModal() {
             <TelegramColored />
           </li>
         </ul>
+        <div className="mt-6 text-lg">Or copy link</div>
+        <div className="flex items-center gap-4 mt-6 w-full border rounded px-4 py-2 border-neutral-400">
+          <Link />
+          <input
+            type="text"
+            className="w-full bg-transparent text-lg outline-none"
+            value="https://codepen.io/coding_dev_"
+          />
+          <button className="bg-black text-slate-200 px-6 py-2 rounded-lg">
+            Copy
+          </button>
+        </div>
       </div>
     </>
   );
