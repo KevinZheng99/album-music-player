@@ -8,6 +8,8 @@ import TelegramColored from "../Icons/TelegramColored";
 import { ShareModalContext } from "../../store/share-modal";
 
 function ShareModal() {
+  const socialLinkStyles =
+    "rounded-full p-2 border-2  cursor-pointer hover:bg-neutral-300 transition-all";
   const { isShowing, shareButton } = useContext(ShareModalContext);
 
   return (
@@ -33,19 +35,19 @@ function ShareModal() {
         </div>
         <div className="mt-6 text-lg">Share this link via</div>
         <ul className="flex mt-6 justify-between items-center">
-          <li className="rounded-full p-2 border-2 border-[#1877f2]">
+          <li className={socialLinkStyles + " border-[#1877f2]"}>
             <FacebookColored />
           </li>
-          <li className="rounded-full p-2 border-2 border-[#1DA1F2]">
+          <li className={socialLinkStyles + " border-[#1DA1F2]"}>
             <TwitterColored />
           </li>
-          <li className="rounded-full p-2 border-2 border-[#C13584]">
+          <li className={socialLinkStyles + " border-[#C13584] "}>
             <InstagramColored />
           </li>
-          <li className="rounded-full p-2 border-2 border-[#25d366]">
+          <li className={socialLinkStyles + " border-[#25d366]"}>
             <WhatsAppColored />
           </li>
-          <li className="rounded-full p-2 border-2 border-[#0088cc]">
+          <li className={socialLinkStyles + " border-[#0088cc]"}>
             <TelegramColored />
           </li>
         </ul>
