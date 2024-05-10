@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useRef } from "react";
 import Close from "../Icons/Close";
 import FacebookColored from "../Icons/FacebookColored";
 import TwitterColored from "../Icons/TwitterColored";
@@ -9,9 +9,14 @@ import Link from "../Icons/Link";
 import { ShareModalContext } from "../../store/share-modal";
 
 function ShareModal() {
+  const copyLinkRef = useRef();
   const socialLinkStyles =
     "rounded-full p-2 border-2  cursor-pointer hover:bg-neutral-300 transition-all";
   const { isShowing, shareButton } = useContext(ShareModalContext);
+
+  const copyLink = () => {
+    navigator.clipboard.writeText(copyLinkRef.current.value);
+  };
 
   return (
     <>
@@ -56,11 +61,15 @@ function ShareModal() {
         <div className="flex items-center gap-4 mt-6 w-full border rounded px-4 py-2 border-neutral-400">
           <Link />
           <input
+            ref={copyLinkRef}
             type="text"
             className="w-full bg-transparent text-lg outline-none"
             value="https://codepen.io/coding_dev_"
           />
-          <button className="bg-black text-slate-200 px-6 py-2 rounded-lg">
+          <button
+            className="bg-black text-slate-200 px-6 py-2 rounded-lg"
+            onClick={copyLink}
+          >
             Copy
           </button>
         </div>
