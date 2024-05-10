@@ -29,6 +29,7 @@ function ShareModal() {
         className={`fixed w-screen h-screen bg-black transition-all delay-75 ${
           isShowing ? "opacity-50" : "opacity-0"
         } ${isShowing ? "z-20" : "-z-10"}`}
+        onClick={shareButton}
       />
       <div
         className={`fixed p-10 rounded-xl w-[512px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-slate-200 z-20 transition-all ${
