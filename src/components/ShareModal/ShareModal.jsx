@@ -17,7 +17,7 @@ function ShareModal() {
           isShowing ? "opacity-100" : "opacity-0"
         }`}
       >
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between border-b border-neutral-400 pb-6">
           <span className="text-2xl font-medium">Share</span>
           <span
             className="rounded-full cursor-pointer hover:bg-neutral-300 p-2 transition-all"
