@@ -45,23 +45,48 @@ function ShareModal() {
           </span>
         </div>
         <div className="mt-6 text-lg">Share this link via</div>
-        <ul className="flex mt-6 justify-between items-center">
-          <li className={socialLinkStyles + " border-[#1877f2]"}>
+        <div className="flex mt-6 justify-between items-center">
+          <a
+            className={socialLinkStyles + " border-[#1877f2]"}
+            href="https://www.facebook.com/"
+            target="_blank"
+            rel="noreferrer"
+          >
             <FacebookColored />
-          </li>
-          <li className={socialLinkStyles + " border-[#1DA1F2]"}>
+          </a>
+          <a
+            className={socialLinkStyles + " border-[#1DA1F2]"}
+            href="https://twitter.com/home"
+            target="_blank"
+            rel="noreferrer"
+          >
             <TwitterColored />
-          </li>
-          <li className={socialLinkStyles + " border-[#C13584] "}>
+          </a>
+          <a
+            className={socialLinkStyles + " border-[#C13584] "}
+            href="https://www.instagram.com/"
+            target="_blank"
+            rel="noreferrer"
+          >
             <InstagramColored />
-          </li>
-          <li className={socialLinkStyles + " border-[#25d366]"}>
+          </a>
+          <a
+            className={socialLinkStyles + " border-[#25d366]"}
+            href="https://www.whatsapp.com/"
+            target="_blank"
+            rel="noreferrer"
+          >
             <WhatsAppColored />
-          </li>
-          <li className={socialLinkStyles + " border-[#0088cc]"}>
+          </a>
+          <a
+            className={socialLinkStyles + " border-[#0088cc]"}
+            href="https://telegram.org/"
+            target="_blank"
+            rel="noreferrer"
+          >
             <TelegramColored />
-          </li>
-        </ul>
+          </a>
+        </div>
         <div className="mt-6 text-lg">Or copy link</div>
         <div
           className={`flex items-center gap-4 mt-6 w-full border rounded px-4 py-2 border-neutral-400 transition-all ${
