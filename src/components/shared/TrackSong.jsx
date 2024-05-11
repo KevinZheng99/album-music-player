@@ -5,6 +5,7 @@ import Play from "../Icons/Play";
 import Share from "../Icons/Share";
 
 import { AudioContext } from "../../store/play-audio-context";
+import { ShareModalContext } from "../../store/share-modal";
 
 function TrackSong({
   trackNum,
@@ -16,6 +17,7 @@ function TrackSong({
   currSongNum,
 }) {
   const { isPlaying } = useContext(AudioContext);
+  const { shareButton } = useContext(ShareModalContext);
 
   return (
     <tr className="flex items-center text-slate-200">
@@ -33,7 +35,7 @@ function TrackSong({
         <span className="font-medium">{artists}</span>
       </td>
       <td className="p-4 mr-8 text-xl font-medium">{songLength}</td>
-      <td className="p-4">
+      <td className="p-4 cursor-pointer" onClick={shareButton}>
         <Share />
       </td>
     </tr>
