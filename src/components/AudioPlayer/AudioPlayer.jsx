@@ -63,8 +63,9 @@ function AudioPlayer({ trackSrc }) {
         onLoadedMetadata={onLoadedMetadata}
         onTimeUpdate={handleTimeUpdate}
         ref={audioRef}
-        src={trackSrc}
-      />
+      >
+        <source src={trackSrc} type="audio/mpeg"></source>
+      </audio>
       <div
         className={
           audioPlayerPos + " bg-[#F22546] p-4 border-4 border-[#D8943F]"
