@@ -10,7 +10,7 @@ function TrackList() {
   const { isPlaying, playButton } = useContext(AudioContext);
   const [currSongNum, setCurrSongNum] = useState(0);
   const [trackPlaying, setTrackPlaying] = useState(
-    "src/assets/audio/Dark Fantasy.mp3"
+    "./src/assets/audio/Dark Fantasy.mp3"
   );
 
   const handlePlayTrack = (trackNum, songName) => {
