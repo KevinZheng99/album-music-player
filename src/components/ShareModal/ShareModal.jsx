@@ -99,7 +99,7 @@ function ShareModal() {
             ref={copyLinkRef}
             type="text"
             className="w-full bg-transparent text-lg outline-none"
-            value="https://codepen.io/coding_dev_"
+            value="https://mbdtf-album.netlify.app/"
           />
           <button
             className="bg-black text-slate-200 px-6 py-2 rounded-lg"
